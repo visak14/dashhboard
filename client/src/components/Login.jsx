@@ -1,6 +1,7 @@
 import axios from 'axios';
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../config';
 
 export default function Login() {
 
@@ -72,7 +73,7 @@ export default function Login() {
               className="bg-purple-600 text-white font-bold py-2 w-full rounded focus:outline-none focus:shadow-outline hover:bg-purple-700"
               type="button"
               onClick={async() => {
-                const response = await axios.post(`http://localhost:3000/signup`, {
+                const response = await axios.post(`${BASE_URL}/signup`, {
                     username: email,
                     password: password
                 })

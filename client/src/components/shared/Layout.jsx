@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { adminState } from '../../store/atoms/admin';
 import axios from 'axios';
+import { BASE_URL } from '../../config';
 
 export default function Layout() {
 
@@ -28,7 +29,7 @@ function InitAdmin() {
   const setAdmin = useSetRecoilState(adminState);
   const inits = async() => {
       try {
-          const response = await axios.get(`http://localhost:3000/me`, {
+          const response = await axios.get(`${BASE_URL}/me`, {
               headers: {
                   "Authorization": "Bearer " + localStorage.getItem("token")
               }
